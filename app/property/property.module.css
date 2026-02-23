@@ -1,0 +1,50 @@
+.property_section
+{
+    background-color: rgb(216, 217, 217);
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    gap:20px;
+    flex-wrap: wrap;
+    padding: 100px 0;
+    /* box-sizing: border-box; */
+}
+
+.property_section .property_card
+{
+    width:50vh;
+    height: 300px;
+    background-color: rgba(82, 147, 154,0.7);
+    padding: 50px;
+    border-top-right-radius: 20px;
+}
+
+.property_section .property_card .ratings_star
+{
+    display: flex;
+}
+
+
+@media only screen and (max-width:480px) {
+
+    .property_section
+{
+    background-color: rgb(216, 217, 217);
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap:20px;
+    flex-wrap: wrap;
+    padding: 100px 5px;
+    box-sizing: border-box;
+}
+
+.property_section .property_card
+{
+    width:30vh;
+    height: 30vh;
+    background-color: rgba(82, 147, 154,0.7);
+    padding: 50px;
+}
+    
+}
