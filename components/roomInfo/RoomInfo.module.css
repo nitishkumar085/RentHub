@@ -1,0 +1,36 @@
+
+.rooms_container
+{
+    width: 70vw;
+    height: 70px;
+    background-color: blanchedalmond;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 30px;
+    align-items: center;
+   
+    
+}
+
+.room_info
+{
+    color: black;
+    display: flex;
+    flex:1 1;
+    justify-content: space-around;
+    font-size: 1.5vw;
+}
+
+.room_fullInfo
+{
+    height: 50vh;
+    display: block;
+    background-color: aliceblue;
+    width: 70vw;
+}
+
+.hide_roomInfo
+{
+    display: none;
+}

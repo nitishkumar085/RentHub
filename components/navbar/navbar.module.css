@@ -9,13 +9,15 @@
    padding: 0px 50px;
    position: fixed;
    width: 100%;
+   z-index: 999;
+   /* border: 1px solid green; */
 }
 
 .navbar_container .navbar_Title
 {
          font-size: 1.5vw;
          font-weight: 600;
-
+/* border: 1px solid green; */
 }
 
 .navbar_container .navbarMenu
@@ -31,10 +33,64 @@
 .navbar_container .addRenterButton
 {
     width:150px;
+    min-width: 70px;
     height: 3rem;
     border-radius: 10px;
     background-color: rgb(75, 151, 227);
     color:white;
     font-weight: 600;
     cursor: pointer;
+    /* border: 1px solid green; */
+}
+
+@media only screen and (max-width:480px) {
+
+        .navbar_container
+{
+    display: flex;
+    background-color: white;
+    height: 70px;
+   color: black;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0px 10px;
+   position: fixed;
+   width: 100%;
+   z-index: 999;
+   border: 1px solid green;
+}
+
+.navbar_container .navbar_Title
+{
+         font-size: 3.5vw;
+         font-weight: 600;
+/* border: 1px solid green; */
+text-align: center;
+}
+
+
+.navbar_container .navbarMenu
+{
+    /* border: 1px solid green; */
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+     font-weight: 600;
+     font-size: 2vw;
+}
+
+
+    .navbar_container .addRenterButton
+{
+    width:25vw;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color: rgb(75, 151, 227);
+    color:white;
+    font-weight: 600;
+    cursor: pointer;
+    /* border: 1px solid green; */
+    font-size:3vw;
+}
+    
 }

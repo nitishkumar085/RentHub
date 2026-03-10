@@ -1,0 +1,12 @@
+
+
+.rooms_section
+{
+     height: 100vh;
+    background-color: rgb(7, 7, 7);
+   padding: 100px 20px;
+    overflow-y: scroll;
+}
+
+
+

@@ -1,0 +1,45 @@
+.vacancy_section
+{
+    height: 100vh;
+    background-color: rgb(216, 217, 217);
+   display: flex;
+    justify-content: space-around;
+    gap:20px;
+    flex-wrap: wrap;
+    padding: 100px 20px;
+    overflow-y: scroll;
+     
+}
+
+.vacancy_section .room_card
+{
+    width:45vh;
+    height:300px;
+    background-color: rgba(23, 36, 38, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 20px 10px 20px -10px black;
+    margin-top: 10px;
+    color: white;
+    transition: transform 1s ease;
+}
+
+
+.vacancy_section .room_card:hover
+{
+    transform: scale(1.05);
+}
+
+
+
+
+.vacancy_section .room_card button
+{
+    font-size: 1vw;
+    margin-top: 10px;
+    width:150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(241, 241, 241);
+    color: rgb(9, 9, 9);
+}
