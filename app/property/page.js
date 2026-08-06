@@ -1,23 +1,43 @@
-
+'use client'
 import Image from "next/image";
+import Link from "next/link";
 
 import style from './property.module.css'
 import Ratingstars from "@/components/ratingstars/Ratingstars";
 
+import {useState,useEffect} from 'react'
+
 export default function Property() {
 
-  const propertiesList = [{name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'5',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'3',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'2',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'1',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'5',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-   {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
-  ]
+  const [propertiesList,setPropertiesList] = useState([])
+  const [loadingData,setLoadingData] = useState(true)
+
+  const fetchdata = async ()=>{
+    try{
+      const res = await fetch('/api/rentProperty')
+      const data = await res.json()
+      setPropertiesList(data.data)
+    }
+    catch(err)
+    {
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{fetchdata()},[])
+
+  // const propertiesList = [{name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'5',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'3',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'2',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'1',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'5',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  //  {name:'rekha apartment',address:'linemark gali',phone:'+91-4578495358',careTakerName:"",ratings:'4',vacant:2,occupied:4},
+  // ]
 
   const properties = propertiesList.map((properties,id)=>{
     return(
@@ -30,7 +50,7 @@ export default function Property() {
           <p>Vacant:{properties?.vacant}</p>
           <p>Occupied:{properties?.occupied}</p>
         </div>
-        <center><button>Dashboard</button></center>
+        <center><Link href={`/dashboard/${properties.name}`}><button>Dashboard</button></Link></center>
       </div>
     )
   })

@@ -2,13 +2,13 @@
 {
     display: flex;
     background-color: white;
-    height: 70px;
    color: black;
    justify-content: space-between;
    align-items: center;
    padding: 0px 50px;
    position: fixed;
    width: 100%;
+    height: 70px;
    z-index: 999;
    /* border: 1px solid green; */
 }
@@ -29,6 +29,11 @@
      font-weight: 600;
      font-size: 1.2vw;
 }
+.navbarMenuToggle
+{
+    display: none;
+}
+
 
 .navbar_container .addRenterButton
 {
@@ -41,6 +46,19 @@
     font-weight: 600;
     cursor: pointer;
     /* border: 1px solid green; */
+}
+
+.navbar_container .loginButton
+{
+    width:100px;
+    min-width: 70px;
+    height: 3rem;
+    border-radius: 10px;
+    color:rgb(10, 10, 10);
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid rgb(209, 208, 208);
+    border-radius: 10px;
 }
 
 @media only screen and (max-width:480px) {

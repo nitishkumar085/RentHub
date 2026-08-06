@@ -1,0 +1,157 @@
+.footer {
+  background-color: rgba(244, 243, 247, 0.941);
+  padding: 60px 50px 30px 50px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* Brand Section */
+.brandSection {
+  max-width: 320px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.logoIcon {
+  font-size: 24px;
+  color: #0f4c81; /* Primary brand color */
+}
+
+.logoText {
+  font-size: 22px;
+  color: #0f4c81;
+  font-weight: 500;
+}
+
+.logoBold {
+  font-weight: 700;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #718096;
+}
+
+/* Links Grid */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.columnTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column li {
+  margin-bottom: 12px;
+}
+
+.column a {
+  font-size: 14px;
+  color: #4a5568;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.column a:hover {
+  color: #0f4c81;
+}
+
+/* Social Section */
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.socialIcons a {
+  color: #1a202c;
+  transition: color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  color: #0f4c81;
+}
+
+/* Divider Line */
+.divider {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  max-width: 1200px;
+  margin: 40px auto 20px auto;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLinks a {
+  color: black;
+  text-decoration: none;
+}
+
+.legalLinks a:hover {
+  color: #0f4c81;
+}
+
+/* Media Queries for Tablet and Desktop Layouts */
+@media (min-width: 480px) {
+  .linksGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    grid-template-columns: 2fr 3fr 1fr;
+    gap: 20px;
+  }
+
+  .linksGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bottomBar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
