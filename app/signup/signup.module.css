@@ -1,0 +1,425 @@
+/* Page */
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7f6 0%, #eef7f3 100%);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 820px;
+}
+
+/* Left */
+.left {
+  background: linear-gradient(180deg, #f4fbf7 0%, #ecf8f3 100%);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.logoIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #16a34a, #059669);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.logo p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.15;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.hero h1 span {
+  color: #059669;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+.features {
+  display: grid;
+  gap: 22px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.featureIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(5, 150, 105, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.feature h4 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.feature p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.houseIllustration {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.houseCard {
+  width: min(100%, 360px);
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #ffffff 0%, #dcfce7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  box-shadow: 0 18px 40px rgba(5, 150, 105, 0.12);
+}
+
+/* Right */
+.right {
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: rgba(5, 150, 105, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+}
+
+.formWrapper h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: left;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #dbe4ea;
+  border-radius: 16px;
+  padding: 0 16px;
+  height: 58px;
+  transition: all 0.25s ease;
+  background: #fff;
+  color: #64748b;
+}
+
+.inputBox:focus-within {
+  border-color: #059669;
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
+}
+
+.inputBox input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  color: #0f172a;
+  background: transparent;
+}
+
+.inputBox input::placeholder {
+  color: #94a3b8;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #059669;
+}
+
+.checkbox a {
+  color: #059669;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #16a34a, #059669);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 14px 28px rgba(5, 150, 105, 0.22);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(5, 150, 105, 0.28);
+}
+
+.divider {
+  position: relative;
+  margin: 32px 0 24px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.92rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.socialBtn {
+  width: 100%;
+  height: 56px;
+  border: 1px solid #dbe4ea;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.socialBtn:hover {
+  border-color: #059669;
+  background: #f8fffb;
+}
+
+.socialBtn img {
+  width: 22px;
+  height: 22px;
+}
+
+.signin {
+  margin-top: 28px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.signin a {
+  color: #059669;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 18px;
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    padding: 40px;
+  }
+
+  .right {
+    padding: 40px;
+  }
+
+  .houseIllustration {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .page {
+    padding: 12px;
+  }
+
+  .container {
+    border-radius: 24px;
+  }
+
+  .left,
+  .right {
+    padding: 24px 20px;
+  }
+
+  .logo {
+    margin-bottom: 32px;
+  }
+
+  .logo h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .features {
+    gap: 18px;
+  }
+
+  .feature {
+    gap: 12px;
+  }
+
+  .featureIcon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .formWrapper h2 {
+    font-size: 1.9rem;
+  }
+
+  .inputBox,
+  .submitBtn,
+  .socialBtn {
+    height: 54px;
+  }
+
+  .divider::before,
+  .divider::after {
+    width: 30%;
+  }
+}
