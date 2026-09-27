@@ -1,7 +1,38 @@
+"use client"
+
+import { useState } from "react"
 import styles from "./signup.module.css"
 import { User, Mail, Lock, Building2, Users, Wallet, BarChart3 } from "lucide-react"
 
 export default function SignupPage() {
+
+  const [formData,setFormData] = useState({
+    email:"",
+    username:"",
+    password:""
+  })
+console.log(formData)
+const submitForm =async (e)=>{
+   e.preventDefault();
+
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      // console.log(data);
+      alert(data.message);
+    } catch (error) {
+      console.log(error);
+    }
+
+}
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -95,7 +126,7 @@ export default function SignupPage() {
                 <label>Username</label>
                 <div className={styles.inputBox}>
                   <User size={18} />
-                  <input type="text" placeholder="Enter your username" />
+                  <input type="text" placeholder="Enter your username" name="username"onChange={(e)=>{setFormData((pre)=>({...pre,[e.target.name]:e.target.value}))}} />
                 </div>
               </div>
 
@@ -103,7 +134,7 @@ export default function SignupPage() {
                 <label>Email Address</label>
                 <div className={styles.inputBox}>
                   <Mail size={18} />
-                  <input type="email" placeholder="Enter your email" />
+                  <input type="email" placeholder="Enter your email" onChange={(e)=>{setFormData((pre)=>({...pre,email:e.target.value}))}} />
                 </div>
               </div>
 
@@ -111,7 +142,7 @@ export default function SignupPage() {
                 <label>Password</label>
                 <div className={styles.inputBox}>
                   <Lock size={18} />
-                  <input type="password" placeholder="Enter your password" />
+                  <input type="password" placeholder="Enter your password" onChange={(e)=>{setFormData((pre)=>({...pre,password:e.target.value}))}}/>
                 </div>
               </div>
 
@@ -131,7 +162,7 @@ export default function SignupPage() {
                 </label>
               </div>
 
-              <button type="submit" className={styles.submitBtn}>
+              <button type="submit" className={styles.submitBtn} onClick={submitForm}>
                 Create Account
               </button>
             </form>

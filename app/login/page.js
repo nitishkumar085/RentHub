@@ -1,21 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import styles from './login.module.css';
+import { useRouter } from "next/navigation";
+import { UserContext } from '@/middlewares/authContext';
+
 
 export default function LoginPage() {
+   const router = useRouter();
+   const {setIsLogin} = useContext(UserContext)
   const [showPassword, setShowPassword] = useState(false);
-  const [form, setForm] = useState({ identifier: '', password: '', remember: false });
+  const [form, setForm] = useState({ email:"",password:""});
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-  };
+ 
 
-  const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Wire this up to your auth endpoint
-    console.log('Sign in', form);
+
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message);
+      setIsLogin(true)
+      router.push("/dashboard");
+    } else {
+      alert(data.message);
+    }
   };
 
   return (
@@ -31,7 +49,7 @@ export default function LoginPage() {
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="identifier">
+            <label className={styles.label} htmlFor="identifier" name="email" onChange={(e)=>setForm((pre)=>({...pre,email:e.target.value}))}>
               Email or username
             </label>
             <div className={styles.inputWrap}>
@@ -43,14 +61,14 @@ export default function LoginPage() {
                 placeholder="owner@property.com"
                 className={styles.input}
                 value={form.identifier}
-                onChange={handleChange}
                 autoComplete="username"
+                onChange={(e)=>setForm((pre)=>({...pre,email:e.target.value}))}
               />
             </div>
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="password">
+            <label className={styles.label} htmlFor="password" >
               Password
             </label>
             <div className={styles.inputWrap}>
@@ -61,9 +79,10 @@ export default function LoginPage() {
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
                 className={styles.input}
-                value={form.password}
-                onChange={handleChange}
+               
+                
                 autoComplete="current-password"
+                onChange={(e)=>setForm((pre)=>({...pre,password:e.target.value}))}
               />
               <button
                 type="button"
@@ -82,7 +101,6 @@ export default function LoginPage() {
                 type="checkbox"
                 name="remember"
                 checked={form.remember}
-                onChange={handleChange}
                 className={styles.checkbox}
               />
               Remember me
