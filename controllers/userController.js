@@ -8,7 +8,6 @@ return {data:data}
 
 export const loginUser = async (req)=>{
     const{email,password} = req
-    console.log(req)
    const user = await Users.findOne({email})
    if (!user) { // its check if user is not present
     throw new Error("Invalid email or password");

@@ -9,7 +9,7 @@ import { useContext, useState } from 'react';
  import { UserContext } from '@/middlewares/authContext';
 export default function NavBar() {
   const links = [{href:'/dashboard',text:"Dashboard"},{href:'/rooms',text:"Rooms"},{href:'/vacancy',text:"Vacancy"},{href:'/property',text:"Property"}]
-  const {isLogin} = useContext(UserContext)
+  const {islogin,setIsLogin} = useContext(UserContext)
     const router = useRouter();
   // const [isLogin, setIsLogin] = useState(false)
   const menu = links.map((links,id)=>{
@@ -30,7 +30,7 @@ export default function NavBar() {
     const data = await response.json();
 
     alert(data.message);
-
+    setIsLogin(false)
     router.push("/login");
     router.refresh(); // Refresh server components
   };
@@ -40,22 +40,23 @@ export default function NavBar() {
   //     width={50}
   //     height={50}
   //   />
-  console.log("navbar",isLogin)
+  console.log("navbar",islogin)
   return (
     <div className={style.navbar_container}> 
      <Link href='/'> 
      <h2 className={style.navbar_Title}> Rent Buddy</h2>
      </Link>
-     <div className={isLogin? style.navbarMenu:style.navbarMenuToggle}>
+     <div className={islogin? style.navbarMenu:style.navbarMenuToggle}>
      {menu}
      </div>
      <div>
-     <Link href='/login'>
-     {isLogin? <button className={style.loginButton}>Logout</button>:<button className={style.loginButton}>Login</button>}
-     </Link>
+      {islogin? <button className={style.loginButton} onClick={handleLogout}>Logout</button>:<Link href='/login'>
+     <button className={style.loginButton}>Login</button>
+     </Link>}
+     
      &nbsp;&nbsp;&nbsp;
      <Link href='/signup'>
-     <button className={isLogin? style.addRenterButton:style.navbarMenuToggle}>+ &nbsp;&nbsp;&nbsp;Add renter</button>
+     <button className={islogin? style.addRenterButton:style.navbarMenuToggle}>+ &nbsp;&nbsp;&nbsp;Add renter</button>
      </Link>
      </div>
 
